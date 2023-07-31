@@ -1,0 +1,56 @@
+<div class="modal-header">
+    <span>Next Step</span>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <!-- Form Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-sm-12">
+                <div class="bg-light rounded h-100 p-4">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="name">
+                        <label for="floatingInput">Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <option value="1">Food Items</option>
+                            <option value="2">Office Stationary</option>
+                            <option value="3">Electronics</option>
+                            <option value="3">Hygiene</option>
+                            <option value="3">Medicine</option>
+                            <option value="3">Others</option>
+                        </select>
+                        <label for="floatingSelect">Category</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <option value="1">Kg</option>
+                            <option value="2">Pieces</option>
+                            <option value="3">Grams</option>
+                            <option value="3">Carton</option>
+                        </select>
+                        <label for="floatingSelect">Measuring Unit</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInput" placeholder="quantity" min="0">
+                        <label for="floatingInput">Quantity</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="name">
+                        <label for="floatingInput">Brand Name (Optional)</label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Purchase Date</label>
+                        <input type="date" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form End -->
+</div>

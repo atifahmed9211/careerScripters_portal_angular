@@ -1,0 +1,72 @@
+<div class="modal-header">
+    <span>Next Step</span>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <!-- Form Start -->
+    <form [formGroup]="leaveForm">
+        <div class="container-fluid pt-4 px-4">
+            <div class="row g-4">
+                <div class="col-sm-12">
+                    <div class="bg-light rounded h-100 p-4">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                                (change)="getStartDay($event)">
+                                <option value="0">Select Leave Type</option>
+                                <option value="paid_leave">Paid Leave</option>
+                                <option value="emergency_leave">Emergency Leave</option>
+                                <option value="medical_leave">Medical Leave</option>
+                                <option value="casual_leave">Casual Leave</option>
+                                <option value="short_leave">Short Leave</option>
+                                <option value="half_leave">Half Leave</option>
+                            </select>
+                            <label for="floatingSelect">Leave Type</label>
+                        </div>
+                        <div *ngIf="leave_type_selected && selected_leave_type!='short_leave' && selected_leave_type!='half_leave'"
+                            class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">From Date</label>
+                            <input #leaveStartDate type="date" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" formControlName="firstDate" min="{{leave_date_start}}"
+                                (change)="getEndDate($event)">
+                        </div>
+                        <div *ngIf="leave_type_selected && selected_leave_type!='short_leave' && selected_leave_type!='half_leave'"
+                            class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">To Date</label>
+                            <input #leaveEndDate type="date" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" formControlName="secondDate" min="{{leave_date_start}}"
+                                max="{{leave_date_end}}" (change)="getNumberOfDays()">
+                        </div>
+                        <div *ngIf="selected_leave_type=='short_leave' || selected_leave_type=='half_leave'"
+                            class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Start Time</label>
+                            <input #leaveStartDate type="time" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" formControlName="startTime" min="{{current_time}}">
+                        </div>
+                        <div *ngIf="selected_leave_type=='short_leave' || selected_leave_type=='half_leave'"
+                            class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">End Time</label>
+                            <input #leaveEndDate type="time" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" formControlName="endTime" min="{{leave_date_start}}"
+                                max="{{leave_date_end}}" (change)="getNumberOfDays()">
+                        </div>
+                        <div *ngIf="selected_leave_type!='short_leave' && selected_leave_type!='half_leave'"
+                            class="mb-3">
+                            <label for="leave_days" class="form-label">Total Days</label>
+                            <input type="number" class="form-control" id="leave_days" aria-describedby="emailHelp"
+                                [value]="no_of_days" disabled>
+                        </div>
+                        <div class="mb-3 form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
+                                style="height: 150px;"></textarea>
+                            <label for="floatingTextarea">Reason</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Form End -->
+</div>

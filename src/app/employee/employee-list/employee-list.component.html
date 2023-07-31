@@ -1,0 +1,81 @@
+<div *ngIf="role=='admin' || role=='manager'" class="col-sm-12 text-end">
+    <div class="bg-light rounded h-100 p-4">
+        <a class="btn btn-primary" routerLink="addEmployee">Add New User</a>
+    </div>
+</div>
+<div *ngIf="role=='hr'" class="col-sm-12 text-end">
+    <div class="bg-light rounded h-100 p-4">
+        <a class="btn btn-primary" routerLink="addBasicInfo">Add Basic Info</a>
+    </div>
+</div>
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Employee Code</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>E123</td>
+                    <td>John</td>
+                    <td>jhon@email.com</td>
+                    <td>
+                        <a class="btn btn-primary me-1" routerLink="employeeDetail">View</a>
+                        <a *ngIf="role=='admin' || role=='manager'" routerLink="updateEmployee" class="btn btn-primary waves-effect waves-light me-1">
+                            <i class="bx bx-cart me-2"></i> Update
+                        </a>
+                        <a *ngIf="role=='hr'" routerLink="updateBasicInfo" class="btn btn-primary waves-effect waves-light me-1">
+                            <i class="bx bx-cart me-2"></i> Update
+                        </a>
+                        <a *ngIf="role=='admin' || role=='manager'" (click)="deleteEmployee()" class="btn btn-success waves-effect waves-light">
+                            <i class="bx bx-shopping-bag me-2"></i>Delete
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>E123</td>
+                    <td>Mark</td>
+                    <td>mark@email.com</td>
+                    <td>
+                        <a class="btn btn-primary me-1" routerLink="employeeDetail">View</a>
+                        <a *ngIf="role=='admin' || role=='manager'" routerLink="updateEmployee" class="btn btn-primary waves-effect waves-light me-1">
+                            <i class="bx bx-cart me-2"></i> Update
+                        </a>
+                        <a *ngIf="role=='hr'" routerLink="updateBasicInfo" class="btn btn-primary waves-effect waves-light me-1">
+                            <i class="bx bx-cart me-2"></i> Update
+                        </a>
+                        <a *ngIf="role=='admin' || role=='manager'" (click)="deleteEmployee()" class="btn btn-success waves-effect waves-light">
+                            <i class="bx bx-shopping-bag me-2"></i>Delete
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>E123</td>
+                    <td>Jacob</td>
+                    <td>jacob@email.com</td>
+                    <td>
+                        <a class="btn btn-primary me-1" routerLink="employeeDetail">View</a>
+                        <a *ngIf="role=='admin' || role=='manager'" routerLink="updateEmployee" class="btn btn-primary waves-effect waves-light me-1">
+                            <i class="bx bx-cart me-2"></i> Update
+                        </a>
+                        <a *ngIf="role=='hr'" routerLink="updateBasicInfo" class="btn btn-primary waves-effect waves-light me-1">
+                            <i class="bx bx-cart me-2"></i> Update
+                        </a>
+                        <a *ngIf="role=='admin' || role=='manager'" (click)="deleteEmployee()" class="btn btn-success waves-effect waves-light">
+                            <i class="bx bx-shopping-bag me-2"></i>Delete
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div *ngIf="role=='admin'" class="col-sm-12 col-xl-12 text-end">
+    <div class="bg-light rounded h-100 p-4">
+        <a class="btn btn-primary" (click)="addNewOrder()">Add New Order</a>
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="bg-light rounded h-100 p-4">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Deadline</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>jhon@email.com</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <a class="btn btn-primary me-1" routerLink="order-detail">View</a>
+                        <a *ngIf="role=='admin' || role=='manager'" routerLink="order-update" class="btn btn-primary waves-effect waves-light me-1">
+                            <i class="bx bx-cart me-2"></i> Update
+                        </a>
+                        <a *ngIf="role=='admin'" (click)="deleteOrder()" class="btn btn-success waves-effect waves-light me-1">
+                            <i class="bx bx-shopping-bag me-2"></i>Delete
+                        </a>
+                        <a *ngIf="role=='manager'" class="btn btn-primary me-1" (click)="assignOrder()">Assign</a>
+                        <a *ngIf="role!='admin' && role!='manager'" class="btn btn-primary me-1" (click)="submitOrder()">Submit</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>mark@email.com</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <a class="btn btn-primary me-1" routerLink="order-detail">View</a>
+                        <a *ngIf="role=='admin' || role=='manager'" routerLink="order-update" class="btn btn-primary waves-effect waves-light me-1">
+                            <i class="bx bx-cart me-2"></i> Update
+                        </a>
+                        <a *ngIf="role=='admin'" (click)="deleteOrder()" class="btn btn-success waves-effect waves-light me-1">
+                            <i class="bx bx-shopping-bag me-2"></i>Delete
+                        </a>
+                        <a *ngIf="role=='manager'" class="btn btn-primary me-1" (click)="assignOrder()">Assign</a>
+                        <a *ngIf="role!='admin' && role!='manager'" class="btn btn-primary me-1" (click)="submitOrder()">Submit</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>jacob@email.com</td>
+                    <td></td>
+                    <td></td>
+                    <td id="demo">{{countdownTimeStart()}}</td>
+                    <td>
+                        <a class="btn btn-primary me-1" routerLink="order-detail">View</a>
+                        <a *ngIf="role=='admin' || role=='manager'" routerLink="order-update" class="btn btn-primary waves-effect waves-light me-1">
+                            <i class="bx bx-cart me-2"></i> Update
+                        </a>
+                        <a *ngIf="role=='admin'" (click)="deleteOrder()" class="btn btn-success waves-effect waves-light me-1">
+                            <i class="bx bx-shopping-bag me-2"></i>Delete
+                        </a>
+                        <a *ngIf="role=='manager'" class="btn btn-primary me-1" (click)="assignOrder()">Assign</a>
+                        <a *ngIf="role!='admin' && role!='manager'" class="btn btn-primary me-1" (click)="submitOrder()">Submit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

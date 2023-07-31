@@ -1,0 +1,81 @@
+<div class="modal-header">
+    <span>Next Step</span>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <!-- Form Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-sm-12">
+                <div class="bg-light rounded h-100 p-4">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="name">
+                        <label for="floatingInput">Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <option value="1">Food Items</option>
+                            <option value="2">Office Stationary</option>
+                            <option value="3">Electronics</option>
+                            <option value="3">Hygiene</option>
+                            <option value="3">Medicine</option>
+                            <option value="3">Others</option>
+                        </select>
+                        <label for="floatingSelect">Category</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                            (change)="changeUnit($event)">
+                            <option value="kg">Kg</option>
+                            <option value="pieces">Pieces</option>
+                            <option value="grams">Grams</option>
+                            <option value="carton">Carton</option>
+                        </select>
+                        <label for="floatingSelect">Measuring Unit</label>
+                    </div>
+                    <div *ngIf="carton_Selected" class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInput" placeholder="name">
+                        <label for="floatingInput">Total piece in Carton</label>
+                    </div>
+                    <div *ngIf="selected_measurement=='kg'" class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInput" placeholder="name">
+                        <label for="floatingInput">Per Kg Price</label>
+                    </div>
+                    <div *ngIf="selected_measurement=='pieces'" class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInput" placeholder="name">
+                        <label for="floatingInput">Per Piece Price</label>
+                    </div>
+                    <div *ngIf="selected_measurement=='grams'" class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInput" placeholder="name"
+                            [(ngModel)]="noOfGrams">
+                        <label for="floatingInput">No.of grams</label>
+                    </div>
+                    <div *ngIf="noOfGrams>0" class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInput" placeholder="name">
+                        <label for="floatingInput">{{noOfGrams}} gram pack price</label>
+                    </div>
+                    <div *ngIf="selected_measurement=='carton'" class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInput" placeholder="name">
+                        <label for="floatingInput">Per Carton Price</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInput" placeholder="quantity" min="0">
+                        <label for="floatingInput">Quantity</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="name">
+                        <label for="floatingInput">Brand Name (Optional)</label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Purchase Date</label>
+                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form End -->
+</div>
